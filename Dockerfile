@@ -1,14 +1,12 @@
-FROM mcr.microsoft.com/mssql/server:2022-latest
+FROM mcr.microsoft.com/mssql/server:2019-latest
 
 ENV ACCEPT_EULA=Y
 ENV SA_PASSWORD=TuPasswordSeguro123!
 ENV MSSQL_PID=Express
-ENV MSSQL_ENCRYPT=0
+ENV MSSQL_MEMORY_LIMIT_MB=512
 
 USER root
-
 RUN /opt/mssql/bin/mssql-conf set network.forceencryption 0
-
 USER mssql
 
 EXPOSE 1433
