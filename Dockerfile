@@ -7,9 +7,13 @@ ENV MSSQL_MEMORY_LIMIT_MB=1024
 
 USER root
 RUN /opt/mssql/bin/mssql-conf set network.forceencryption 0
+
 COPY backup.bak /tmp/backup.bak
+COPY PFDB2.sql /tmp/PFDB2.sql
+
 RUN chmod 777 /tmp/backup.bak
+RUN chmod 777 /tmp/PFDB2.sql
+
 USER mssql
 
-EXPOSE 1433
 EXPOSE 1433
