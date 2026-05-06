@@ -8,6 +8,8 @@ ENV MSSQL_MEMORY_LIMIT_MB=1024
 USER root
 RUN /opt/mssql/bin/mssql-conf set network.forceencryption 0
 
+RUN rm -f /var/opt/mssql/data/PFBD2.mdf
+RUN rm -f /var/opt/mssql/data/PFBD2.ldf
 RUN rm -f /var/opt/mssql/data/PFDB2.mdf
 RUN rm -f /var/opt/mssql/data/PFDB2.ldf
 
