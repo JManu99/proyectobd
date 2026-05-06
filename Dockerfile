@@ -7,6 +7,11 @@ ENV MSSQL_MEMORY_LIMIT_MB=512
 
 USER root
 RUN /opt/mssql/bin/mssql-conf set network.forceencryption 0
+
+COPY backup.bak /tmp/backup.bak
+
+RUN chmod 777 /tmp/backup.bak
+
 USER mssql
 
 EXPOSE 1433
